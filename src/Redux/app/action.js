@@ -32,15 +32,14 @@ const fetchPostFailure = error => {
 };
 
 // action to fetch the data 
-const fetchData = () => (dispatch) => {
-    // dispatching request
-    dispatch(fetchPostRequest()); 
+const fetchData = () => (dispatch,page) => {
+
     return axios
-      .get(`https://jsonplaceholder.typicode.com/posts`)
+      .get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`)
       .then(res => {
-        console.log("response success", res.data.items);
-        // do some logic on response if required
-        return dispatch(fetchPostSuccess(res.data.items));
+        console.log("response success", res.data);
+        
+        return dispatch(fetchPostSuccess(res.data));
       })
       .catch(err => dispatch(fetchPostFailure(err)));
   };
