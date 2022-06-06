@@ -25,13 +25,13 @@ const loginFailure = (err) => {
 
 // "email": "eve.holt@reqres.in",
 // "password": "cityslicka"
-const loginUser= ()=>(dispatch,payload) => {
-  // dispatch
-  // a request
-  return axios.post("https://reqres.in.api/user",payload).then((res)=>{
-          console.log(res)
+const loginUser = (dispatch,payload)=>() => {
+  console.log(payload)
+   
+  return axios.post("https://reqres.in/api/login",payload).then((res)=>{
+          dispatch(loginSuccess(res.data.token))
       }).catch((err)=>{
-          console.log(err)
+          dispatch(loginFailure(res.data.message))
       })
   
 };

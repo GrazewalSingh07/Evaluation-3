@@ -1,32 +1,36 @@
 import React from "react";
-import { loginRequest } from "../Redux/auth/action";
+import { loginUser } from "../Redux/auth/action";
 import { useSelector, useDispatch } from "react-redux";
 export const Login=()=> {
   const dispatch=useDispatch()
-  const loginUser =useSelector((state)=>{return state.loginUser})
-  console.log(loginUser)
+   
+  const isAuth = useSelector((state)=>{console.log(state)})
+  const token =useSelector((state)=>{return state.isLoading})
+  console.log(token)
+  // console.log(loginUser)
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let payload = { email, password };
-     dispatch(loginuser(dispatch,payload))
+    
+     dispatch(loginUser(dispatch,payload))
   };
   return (
     <>
       <h3>Login form</h3>
-      <form onSubmit={handleSubmit}>
-        <input onChange={(e) => setEmail(e.target.value)} placeholder="email" />
+       
+        <input value={email}onChange={(e) => setEmail(e.target.value)} placeholder="email" />
         <br />
-        <input
+        <input value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"
           type="password"
         />
         <br />
-        <input type="submit" />
-      </form>
+       <button onClick={handleSubmit}> Submit</button>
+     
     </>
   );
 }

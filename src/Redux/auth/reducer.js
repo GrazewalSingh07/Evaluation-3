@@ -6,10 +6,10 @@ const token = loadData("token");
 // once verified
 
 const initState = {
-  isAuth: token ? true : false,
-  token: token || "",
-  isError: false,
-  isLoading: false
+    isAuth: token ? true : false,
+    token: token || "",
+    isError: false,
+    isLoading: false
 };
 
 const authReducer = (state = initState, { type, payload }) => {

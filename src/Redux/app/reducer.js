@@ -18,7 +18,7 @@ import {
         return {
           ...state,
           isLoading: true,
-          query: action.query
+          
         };
       case FETCH_POST_SUCCESS:
        

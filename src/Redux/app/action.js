@@ -7,13 +7,7 @@ import axios from "axios";
 
 
 // action creators
-const fetchPostRequest = query => {
-  console.log("fetch post request action called");
-  return {
-    type: FETCH_POST,
-    query: query || ""
-  };
-};
+ 
 
 const fetchPostSuccess = data => {
   console.log("fetch post success action called");
