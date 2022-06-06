@@ -23,11 +23,12 @@ const loginFailure = (err) => {
   };
 };
 
-const loginUser = (payload) => {
+// "email": "eve.holt@reqres.in",
+// "password": "cityslicka"
+const loginUser= ()=>(dispatch,payload) => {
   // dispatch
   // a request
-  
-      axios.post("https://reqres.in.api/user",payload).then((res)=>{
+  return axios.post("https://reqres.in.api/user",payload).then((res)=>{
           console.log(res)
       }).catch((err)=>{
           console.log(err)
@@ -35,4 +36,4 @@ const loginUser = (payload) => {
   
 };
 
-export { loginRequest, loginSuccess, loginFailure };
+export { loginRequest, loginSuccess, loginFailure,loginUser };
